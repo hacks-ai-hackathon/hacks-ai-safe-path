@@ -1,10 +1,14 @@
 import { Container, MantineProvider } from "@mantine/core";
+import { Header } from "@/widgets";
+import '@mantine/core/styles.css';
 
 const App = () => {
   return (
-      <MantineProvider>
-          <Container>App</Container>
-      </MantineProvider>
+    <MantineProvider defaultColorScheme="dark">
+      <Container fluid pt="sm">
+        <Header />
+      </Container>
+    </MantineProvider>
   )
 }
 
