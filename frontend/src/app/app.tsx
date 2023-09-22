@@ -1,12 +1,18 @@
-import { Container, MantineProvider } from "@mantine/core";
+import { Container, Flex, MantineProvider } from "@mantine/core";
 import { Header } from "@/widgets";
 import '@mantine/core/styles.css';
+import { CameraPreview } from "../widgets";
+
+import styles from "./styles.module.scss";
 
 const App = () => {
   return (
     <MantineProvider defaultColorScheme="dark">
-      <Container fluid pt="sm">
-        <Header />
+      <Container pt="sm" pb="sm" fluid className={styles.container}>
+        <Flex direction="column" gap="md" className={styles.layout}>
+          <Header />
+          <CameraPreview />
+        </Flex>
       </Container>
     </MantineProvider>
   )

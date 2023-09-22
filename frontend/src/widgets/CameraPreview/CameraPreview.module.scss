@@ -1,0 +1,21 @@
+.preview {
+    max-height: inherit;
+
+    overflow: hidden;
+    flex: 1;
+}
+
+.layout {
+    height: 100%;
+}
+
+.stream {
+    height: 100%;
+}
+
+.cameraName {
+    font-family: "Medium";
+    position: absolute;
+    bottom: 16px;
+    left: 16px;
+}

@@ -11,7 +11,7 @@ const Header = () => {
         <Text size="lg" className={styles.logo}>
           Безопасный путь
       </Text>
-        <Badge className={styles.status} variant="outline" color="green">
+        <Badge className={styles.status} variant="dot" color="green">
           Online
           </Badge>
       </Flex>
