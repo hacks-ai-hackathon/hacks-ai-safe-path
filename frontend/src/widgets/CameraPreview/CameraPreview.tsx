@@ -21,7 +21,7 @@ const CameraPreview = ({ cameraName, className, link, isLive = false }: Props) =
             </Badge>
             {isLive && link ? <iframe
                 className={styles.stream}
-                src={link}
+                src={link + '&autohide=1&showinfo=0&controls=0&mute=1&autoplay=1&hd=1'}
                 frameBorder="0"
                 allow="autoplay"
             /> : <img className={styles.noSignalImg} src="https://placehold.co/600x400?text=No Signal" />}

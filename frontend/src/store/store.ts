@@ -10,7 +10,7 @@ type Store = {
 }
 
 export const useAppStore = create<Store>((set) => ({
-    link: 'https://www.youtube.com/embed/g7CJ3pm-e7s?si=NAJzGUFhbCKVGMJP&autohide=1&showinfo=0&controls=0&mute=1&autoplay=1&hd=1',
+    link: '',
     timeline: [],
     setLink: (link: string) => set({ link }),
     setVideoTimeline: (timeline: VideoTimeline) => set({ timeline }),
