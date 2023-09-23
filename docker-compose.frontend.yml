@@ -3,7 +3,7 @@ version: "3.8"
 services:
     frontend:
         container_name: frontend
-        image: ${DOCKERHUB_USERNAME}/hacks-ai-2023.frontend:latest
+        image: danyakladnitsky/hacks-ai-2023.frontend:latest
         ports:
             - 81:80
         restart: always
