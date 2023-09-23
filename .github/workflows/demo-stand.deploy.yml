@@ -6,19 +6,9 @@ on:
       - main
 
 jobs:
-  download-source-code:
-    runs-on: [self-hosted, backend]
-    name: Download source code from repository
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-        with:
-          fetch-depth: 2
-  
   push-to-dockerhub:
     name: Build and publish images to Docker Registry
     runs-on: backend
-    needs: download-source-code
     env:
       frontend_rep: ${{ secrets.DOCKERHUB_USERNAME }}/hacks-ai-2023.frontend
       backend_rep: ${{ secrets.DOCKERHUB_USERNAME }}/hacks-ai-2023.backend
@@ -59,6 +49,8 @@ jobs:
     name: Pull frontend image
     runs-on: self-hosted
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
       -
         name: Pull service
         run: docker compose pull
@@ -74,6 +66,8 @@ jobs:
     name: Pull backend image
     runs-on: backend
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
       -
         name: Pull service
         run: docker compose pull
