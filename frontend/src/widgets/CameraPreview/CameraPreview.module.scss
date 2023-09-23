@@ -24,13 +24,14 @@
     height: 100%;
 
     display: flex;
-    align-items: center;
     justify-content: center;
 }
 
 .alertMessage {
+    margin-top: 30px;
     max-width: 300px;
-    background-color: rgba(204, 99, 71, 0.9);
+    max-height: 56px;
+    background-color: rgba(204, 99, 71, 0.8);
 }
 
 .stream {
@@ -43,6 +44,9 @@
     position: absolute;
     bottom: 16px;
     left: 16px;
+    z-index: 2;
+    font-size: 12px;
+    text-transform: unset;
 }
 
 .noSignalImg {
