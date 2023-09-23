@@ -46,7 +46,7 @@ jobs:
           platforms: linux/x86_64
 
   build-frontend:
-    needs: [download-source-code, push-to-dockerhub]
+    needs: push-to-dockerhub
     name: Pull frontend image
     runs-on: self-hosted
     steps:
@@ -64,7 +64,7 @@ jobs:
         run: docker ps -a
 
   build-backend:
-    needs: [download-source-code, push-to-dockerhub]
+    needs: push-to-dockerhub
     name: Pull backend image
     runs-on: backend
     steps:
