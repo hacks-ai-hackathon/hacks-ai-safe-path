@@ -22,7 +22,7 @@ jobs:
     steps:
       -
         name: Stop service
-        run: docker compose down
+        run: docker compose -f docker-compose.frontend.yml down
       -
         name: Build service
         run: docker compose -f docker-compose.frontend.yml up --build -d --force-recreate
@@ -37,7 +37,7 @@ jobs:
     steps:
       -
         name: Stop service
-        run: docker compose down
+        run: docker compose -f docker-compose.backend.yml down
       -
         name: Build service
         run: docker compose -f docker-compose.backend.yml up --build -d --force-recreate
