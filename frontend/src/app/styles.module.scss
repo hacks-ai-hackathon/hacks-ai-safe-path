@@ -1,0 +1,13 @@
+.container {
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.layout {
+    height: 100%;
+
+    flex: 0 1 auto;
+}

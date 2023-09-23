@@ -1,10 +1,20 @@
-import { Container, MantineProvider } from "@mantine/core";
+import { Container, Flex, MantineProvider } from "@mantine/core";
+import { Header, Sidebar, TrainCameras } from "@/widgets";
+import '@mantine/core/styles.css';
+
+import styles from "./styles.module.scss";
 
 const App = () => {
   return (
-      <MantineProvider>
-          <Container>App</Container>
-      </MantineProvider>
+    <MantineProvider defaultColorScheme="dark">
+      <Container pt="sm" pb="sm" fluid className={styles.container}>
+        <Header />
+        <Flex gap="md" className={styles.layout}>
+          <Sidebar />
+          <TrainCameras />
+        </Flex>
+      </Container>
+    </MantineProvider>
   )
 }
 

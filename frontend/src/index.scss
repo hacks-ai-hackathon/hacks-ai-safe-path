@@ -1,0 +1,28 @@
+@font-face {
+    font-family: "Light";
+    src:
+        local("Helvetica Light"),
+        url("fonts/Ubuntu/Ubuntu-Light.ttf") format("opentype")
+}
+
+@font-face {
+    font-family: "Regular";
+    src:
+        local("Helvetica Regular"),
+        url("fonts/Ubuntu/Ubuntu-Regular.ttf") format("opentype")
+}
+
+@font-face {
+    font-family: "Medium";
+    src:
+        local("Helvetica Medium"),
+        url("fonts/Ubuntu/Ubuntu-Medium.ttf") format("opentype")
+}
+
+#root {
+    font-family: "Regular";
+}
+
+body {
+    margin: 0;
+}
