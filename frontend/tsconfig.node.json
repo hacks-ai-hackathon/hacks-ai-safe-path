@@ -8,5 +8,10 @@
   },
   "include": [
     "vite.config.ts"
-  ]
+  ],
+  "paths": {
+    "@/*": [
+      "./src"
+    ]
+  }
 }
