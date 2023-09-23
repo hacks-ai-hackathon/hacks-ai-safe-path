@@ -38,7 +38,7 @@ jobs:
     steps:
       -
         name: Build service
-        run: docker compose -f docker-compose-frontend.yml up frontend -d --force-recreate
+        run: docker compose -f docker-compose.frontend.yml up frontend -d --force-recreate
       -
         name: Check service
         run: docker ps -a
