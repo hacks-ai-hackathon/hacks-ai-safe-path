@@ -8,7 +8,7 @@ const Header = () => {
     <Flex justify="space-between" align="center" className={styles.header}>
       <Flex align="center" gap='md'>
         <IconRoute />
-        <Text size="lg" className={styles.logo}>
+        <Text size="xl" className={styles.logo}>
           Безопасный путь
       </Text>
         <Badge className={styles.status} variant="dot" color="green">
