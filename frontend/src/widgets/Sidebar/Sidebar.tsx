@@ -1,17 +1,20 @@
-import { Card, Flex, Text, Timeline, Alert, Button, Group, Image } from "@mantine/core";
-import { IconEye, IconBellSchool, IconSquareRoundedX, IconAlertTriangleFilled, IconPhone } from "@tabler/icons-react";
+import { Card, Flex, Text, Timeline, Button, Group, Image } from "@mantine/core";
+import { useAppStore } from "@store/store";
+import { IconEye, IconBellSchool, IconSquareRoundedX,  IconPhone } from "@tabler/icons-react";
 import styles from "./Sidebar.module.scss";
 
 const Sidebar = () => {
+  const { isAlert } = useAppStore();
+
   return (
       <Card className={styles.sidebar}>
           <Flex direction="column" className={styles.layout}>
               <Group>
-                <Text fw="bold" size="lg">Мониторинг</Text>
-                <Alert icon={<IconAlertTriangleFilled />} color="yellow" w="100%" fw="bold" variant="filled">
+                <Text fw="bold" size="lg">Внештатная ситуация</Text>
+                {/* <Alert icon={<IconAlertTriangleFilled />} color="yellow" w="100%" fw="bold" variant="filled">
                     Внимание!
-                </Alert>
-                  <Timeline className={styles.timeline} active={1} bulletSize={24} lineWidth={3}>
+                </Alert> */}
+                <Timeline className={styles.timeline} active={isAlert ? 2 : 0} bulletSize={24} lineWidth={3}>
                 <Timeline.Item color="yellow" bullet={<IconEye size={18} />} fz="sm" fw="bold" title="Замечен человек">
                     <Flex direction="column">
                         <Text c="dimmed" size="xs">Правая сторона движения</Text>
@@ -22,7 +25,7 @@ const Sidebar = () => {
                 <Timeline.Item color="yellow" bullet={<IconBellSchool size={14} />} fz="xs" title="Предупредительный сигнал">
                     <Text c="dimmed" size="xs">Подайте сигнал человеку</Text>
                 </Timeline.Item>
-                <Timeline.Item  opacity="0.6" bullet={<IconSquareRoundedX size={14} />} fz="xs" title="Полная остановка">
+                <Timeline.Item color="red"  opacity="0.6" bullet={<IconSquareRoundedX size={14} />} fz="xs" title="Полная остановка">
                         <Text c="dimmed" size="xs">Через 20 секунд остановите поезд</Text>
                 </Timeline.Item>
                 <Timeline.Item opacity="0.4" bullet={<IconPhone size={14} />} fz="xs" title="Доложите об инциденте">

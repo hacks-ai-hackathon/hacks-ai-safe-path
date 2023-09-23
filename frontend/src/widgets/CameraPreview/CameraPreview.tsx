@@ -1,7 +1,9 @@
-import { Badge, Card, Flex } from '@mantine/core';
+import { Alert, Badge, Card, Flex } from '@mantine/core';
 import styles from "./CameraPreview.module.scss";
 
 import cx from "classnames";
+import { IconAlertTriangleFilled } from '@tabler/icons-react';
+import { useAppStore } from '@store/store';
 
 type Props = {
   cameraName: string;
@@ -11,6 +13,7 @@ type Props = {
 }
 
 const CameraPreview = ({ cameraName, className, link, isLive = false }: Props) => {
+  const { isAlert } = useAppStore();
   return (
       <Card className={cx(styles.preview, className)} padding="0" radius="md">
           <Flex direction="column" gap="sm" className={styles.layout}>
@@ -19,12 +22,19 @@ const CameraPreview = ({ cameraName, className, link, isLive = false }: Props) =
                     {cameraName}
                 </Flex>
             </Badge>
-            {isLive && link ? <iframe
+        <div className={styles.video}>
+          {isLive && isAlert && <div  className={styles.alert}>
+            <Alert icon={<IconAlertTriangleFilled />} variant="filled" className={styles.alertMessage} color="red">Человек на путях!</Alert>
+          </div>}
+          {
+            isLive && link ? <iframe
                 className={styles.stream}
                 src={link + '&autohide=1&showinfo=0&controls=0&mute=1&autoplay=1&hd=1'}
                 frameBorder="0"
                 allow="autoplay"
-            /> : <img className={styles.noSignalImg} src="https://placehold.co/600x400?text=No Signal" />}
+        /> : <img className={styles.noSignalImg} src="https://placehold.co/600x400?text=No Signal" />
+            }
+            </div>
           </Flex>
     </Card>
   )
