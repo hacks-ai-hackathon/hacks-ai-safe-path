@@ -7,10 +7,35 @@
 
 .layout {
     height: 100%;
+    width: inherit;
+}
+
+.video {
+    height: 100%;
+    width: 100%;
+    flex: 1;
+    position: relative;
+}
+
+.alert {
+    position: absolute;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.alertMessage {
+    max-width: 300px;
+    background-color: rgba(204, 99, 71, 0.9);
 }
 
 .stream {
     height: 100%;
+    width: 100%;
 }
 
 .cameraName {

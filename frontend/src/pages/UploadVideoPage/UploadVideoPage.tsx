@@ -1,9 +1,11 @@
 import { Button, Flex, TextInput } from '@mantine/core';
 import { useAppStore } from '@store/store';
-import { IconUpload } from '@tabler/icons-react';
+import { IconHistory, IconUpload } from '@tabler/icons-react';
 import { useNavigate } from "react-router-dom";
 
 import styles from "./UploadVideoPage.module.scss";
+
+const SAVED_LINK = "https://www.youtube.com/embed/VtYChS_8nII?si=dLxhXtywou7NAiWy"
 
 const UploadVideoPage = () => {
     const { link, setLink } = useAppStore();
@@ -35,6 +37,9 @@ const UploadVideoPage = () => {
                   
               }
           />
+          <Flex align="flex-start">
+              <Button variant="transparent" leftSection={<IconHistory />} onClick={() => setLink(SAVED_LINK)}>Загрузить последнюю ссылку</Button>
+          </Flex>
     </Flex>
   )
 }
