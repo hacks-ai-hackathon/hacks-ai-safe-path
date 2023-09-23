@@ -21,6 +21,9 @@ jobs:
     runs-on: self-hosted
     steps:
       -
+        name: Stop service
+        run: docker compose down
+      -
         name: Build service
         run: docker compose -f docker-compose.frontend.yml up --build -d --force-recreate
       -
@@ -32,6 +35,9 @@ jobs:
     name: Build and publish backend
     runs-on: backend
     steps:
+      -
+        name: Stop service
+        run: docker compose down
       -
         name: Build service
         run: docker compose -f docker-compose.backend.yml up --build -d --force-recreate
