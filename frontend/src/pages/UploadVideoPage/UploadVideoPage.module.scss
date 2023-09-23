@@ -1,0 +1,27 @@
+.layout {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-top: 32px;
+}
+
+.rootInput {
+    width: fit-content !important;
+}
+
+.input {
+    min-width: 768px;
+    height: 50px;
+    font-size: 16px;
+    font-family: "Medium";
+}
+
+.uploadBtn {
+    position: relative;
+    right: 54px;
+}
+
+.section {}

@@ -1,6 +1,6 @@
 import { Badge, Flex, Text } from "@mantine/core";
 import { IconRoute } from '@tabler/icons-react';
-import { UserAvatar } from "../../ui";
+import UserAvatar from "@ui/UserAvatar/UserAvatar";
 import styles from "./Header.module.scss";
 
 const Header = () => {

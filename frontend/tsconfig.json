@@ -2,6 +2,9 @@
   "compilerOptions": {
     "target": "ES2020",
     "useDefineForClassFields": true,
+    "types": [
+      "node"
+    ],
     "lib": [
       "ES2020",
       "DOM",
@@ -11,6 +14,7 @@
     "skipLibCheck": true,
     /* Bundler mode */
     "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
     "allowImportingTsExtensions": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
@@ -20,11 +24,26 @@
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true
+    "noFallthroughCasesInSwitch": true,
+    "baseUrl": "./src", // This is to avoid adding the ./src prefix to each path below.
+    "paths": {
+      "@widgets/*": [
+        "widgets/*"
+      ],
+      "@ui/*": [
+        "ui/*"
+      ],
+      "@pages/*": [
+        "pages/*"
+      ],
+      "@app/*": [
+        "app/*"
+      ],
+      "@store/*": [
+        "store/*"
+      ]
+    }
   },
-  "include": [
-    "src"
-  ],
   "references": [
     {
       "path": "./tsconfig.node.json"
