@@ -1,4 +1,4 @@
-name: Deploy pushed version to demo-stand
+name: Deploy application to stands
 
 on:
   push:
@@ -9,36 +9,32 @@ jobs:
   init:
     runs-on: self-hosted
     name: init pipeline
-    outputs:
-      frontend: ${{ steps.check_files.outputs.frontend }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
         with:
           fetch-depth: 2
-      - name: check modified files
-        id: check_files
-        run: |
-            git diff --name-only HEAD^ HEAD > files.txt
-            while IFS= read -r file; do
-              echo $file
-              if [[ $file == frontend/* ]]; then
-                echo "frontend will be rebuilt"
-                echo "::set-output name=frontend::true"
-              else
-                echo "file does not belong to any service"
-              fi
-            done < files.txt
 
   build-frontend:
     needs: init
-    if: needs.init.outputs.frontend == 'true'
     name: Build and publish frontend
     runs-on: self-hosted
     steps:
       -
         name: Build service
         run: docker compose -f docker-compose.frontend.yml up --build -d --force-recreate
+      -
+        name: Check service
+        run: docker ps -a
+
+  build-backend:
+    needs: init
+    name: Build and publish backend
+    runs-on: backend
+    steps:
+      -
+        name: Build service
+        run: docker compose -f docker-compose.backend.yml up --build -d --force-recreate
       -
         name: Check service
         run: docker ps -a
