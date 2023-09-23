@@ -1,3 +1,9 @@
 .cameras {
-    height: 100%;
+    flex: 3;
+
+    position: relative;
+}
+
+.main {
+    flex: 1;
 }

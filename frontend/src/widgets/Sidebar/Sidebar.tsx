@@ -11,7 +11,7 @@ const Sidebar = () => {
                 <Alert icon={<IconAlertTriangleFilled />} color="yellow" w="100%" fw="bold" variant="filled">
                     Внимание!
                 </Alert>
-                  <Timeline active={1} bulletSize={24} lineWidth={3}>
+                  <Timeline className={styles.timeline} active={1} bulletSize={24} lineWidth={3}>
                 <Timeline.Item color="yellow" bullet={<IconEye size={18} />} fz="sm" fw="bold" title="Замечен человек">
                     <Flex direction="column">
                         <Text c="dimmed" size="xs">Правая сторона движения</Text>

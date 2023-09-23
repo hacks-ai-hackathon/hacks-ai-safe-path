@@ -1,5 +1,6 @@
 import { Flex } from '@mantine/core';
-import { Sidebar, TrainCameras } from '@widgets/index';
+import Sidebar from '@widgets/Sidebar/Sidebar';
+import TrainCameras from '@widgets/TrainCameras/TrainCameras';
 
 import styles from "./MonitoringPage.module.scss";
 

@@ -1,10 +1,11 @@
 import { Container, MantineProvider } from "@mantine/core";
-import { Header } from "@widgets";
 import '@mantine/core/styles.css';
 
 import styles from "./styles.module.scss";
-import { MonitoringPage, UploadVideoPage } from "@pages";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Header from "@widgets/Header/Header";
+import UploadVideoPage from "@pages/UploadVideoPage/UploadVideoPage";
+import MonitoringPage from "@pages/Monitoring/MonitoringPage";
 
 const App = () => {
   return (

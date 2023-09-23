@@ -20,6 +20,10 @@ export default defineConfig({
     {
         find: "@app",
         replacement: path.resolve(__dirname, "src/app"),
+      },
+    {
+        find: "@store",
+        replacement: path.resolve(__dirname, "src/store"),
     },
     {
         find: "fonts",
