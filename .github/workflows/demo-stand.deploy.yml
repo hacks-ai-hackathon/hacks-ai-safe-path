@@ -31,7 +31,7 @@ jobs:
             done < files.txt
 
   build-frontend:
-    needs: create-env-config
+    needs: init
     if: needs.init.outputs.frontend == 'true'
     name: Build and publish frontend
     runs-on: self-hosted
