@@ -8,7 +8,7 @@ import { useNavigate } from 'react-router-dom';
 import styles from "./MonitoringPage.module.scss";
 
 const MonitoringPage = () => {
-  const { link, isAlert } = useAppStore();
+  const { link } = useAppStore();
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -23,7 +23,7 @@ const MonitoringPage = () => {
   
   return (
     <Flex gap="md" className={styles.layout}>
-         {isAlert && <Sidebar />}
+          <Sidebar />
           <TrainCameras />
     </Flex>
   )

@@ -5,8 +5,8 @@ import CameraPreview from '../CameraPreview/CameraPreview';
 import styles from "./TrainCameras.module.scss";
 
 const TrainCameras = () => {
-  const link = useAppStore(store => store.link);
-  
+  const { link } = useAppStore();
+
   return (
     <Flex direction="column" gap="sm" className={styles.cameras}>
         <CameraPreview className={styles.main} link={link} isLive cameraName="Передняя камера" />

@@ -13,7 +13,7 @@ type Props = {
 }
 
 const CameraPreview = ({ cameraName, className, link, isLive = false }: Props) => {
-  const { isAlert } = useAppStore();
+  const { alertStatus } = useAppStore();
   return (
       <Card className={cx(styles.preview, className)} padding="0" radius="md">
           <Flex direction="column" gap="sm" className={styles.layout}>
@@ -23,7 +23,7 @@ const CameraPreview = ({ cameraName, className, link, isLive = false }: Props) =
                 </Flex>
             </Badge>
         <div className={styles.video}>
-          {isLive && isAlert && <div  className={styles.alert}>
+          {isLive && alertStatus > -1 && <div  className={styles.alert}>
             <Alert icon={<IconAlertTriangleFilled />} variant="filled" className={styles.alertMessage} color="red">Человек на путях!</Alert>
           </div>}
           {
