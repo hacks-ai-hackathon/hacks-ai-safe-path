@@ -7,7 +7,7 @@ on:
 
 jobs:
   init:
-    runs-on: self-hosted
+    runs-on: [self-hosted, backend]
     name: init pipeline
     steps:
       - name: Checkout code
