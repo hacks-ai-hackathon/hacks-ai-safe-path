@@ -1,5 +1,5 @@
 import { Container, Flex, MantineProvider } from "@mantine/core";
-import { Header, Sidebar, TrainCameras } from "@/widgets";
+import { Header, Sidebar, TrainCameras } from "../widgets";
 import '@mantine/core/styles.css';
 
 import styles from "./styles.module.scss";
