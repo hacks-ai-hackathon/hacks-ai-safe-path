@@ -1,4 +1,4 @@
-name: Deploy app to demo-stand
+name: Deploy pushed version to demo-stand
 
 on:
   push:
