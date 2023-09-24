@@ -29,3 +29,5 @@ def download_youtube_vid(link):
         youtube_object.download()
     except:
         print("An error has occurred")
+
+    return youtube_object.title + ".mp4"
