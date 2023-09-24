@@ -25,19 +25,20 @@ class TrainAlertSystem:
     def _add_risk_zone_mask(self, mask: np.ndarray):
         h, w = mask.shape[:2]
 
-        bottom_zone = [slice(int(0.75 * h), h), slice(0, w)]
-        middle_zone = [slice(int(0.50 * h), int(0.75 * h)), slice(0, w)]
+        bottom_zone = [slice(int(0.70 * h), h), slice(0, w)]
+        middle_zone = [slice(int(0.50 * h), int(0.70 * h)), slice(0, w)]
         upper_zone = [slice(int(0.45 * h), int(0.50 * h)), slice(0, w)]
 
-        kernel = np.ones((5, 5), np.uint8)
+        mask[bottom_zone[0], bottom_zone[1]] = cv2.erode(mask[bottom_zone[0], bottom_zone[1], :], np.ones((25, 25), np.uint8),
+                                                         iterations=6)
+        mask[middle_zone[0], middle_zone[1]] = cv2.erode(mask[middle_zone[0], middle_zone[1], :], np.ones((10, 10), np.uint8),
+                                                         iterations=5)
+        mask[upper_zone[0], upper_zone[1]] = cv2.erode(mask[upper_zone[0], upper_zone[1], :], np.ones((5, 5), np.uint8), iterations=1)
 
-        mask[bottom_zone[0], bottom_zone[1]] = cv2.erode(mask[bottom_zone[0], bottom_zone[1], :], kernel,
-                                                         iterations=100)
-        mask[middle_zone[0], middle_zone[1]] = cv2.erode(mask[middle_zone[0], middle_zone[1], :], kernel,
-                                                         iterations=25)
-        mask[upper_zone[0], upper_zone[1]] = cv2.erode(mask[upper_zone[0], upper_zone[1], :], kernel, iterations=1)
+        # mask = cv2.GaussianBlur(mask, (25,25),0)
 
         return mask
+
 
     def predict_images(self, images):
 
@@ -92,8 +93,3 @@ class TrainAlertSystem:
         submission_df = pd.DataFrame.from_dict(submission_dict)
         submission_df.to_csv(os.path.join(output_path, "submission.csv"), sep=";", index=False)
 
-
-alert_sys = TrainAlertSystem(railway_seg_model=r"C:\Users\Professional\PycharmProjects\hackaton_ai\hacks-ai-safe-path\model\railway_segmentation\weights\efficientnetb4.pth.tar")
-path = Path(r"C:\Users\Professional\PycharmProjects\hackaton_ai\hacks-ai-safe-path\data")
-out = Path(r"C:\Users\Professional\PycharmProjects\hackaton_ai\hacks-ai-safe-path\submissions")
-alert_sys.get_submission(test_video_folder=path, output_path=out)

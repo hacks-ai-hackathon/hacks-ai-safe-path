@@ -5,7 +5,7 @@ import torch
 
 class DetectionModel:
 
-    def __init__(self, model_name: str = "yolov5m", class_names: List[str] = ["person"], confidence: float = 0.25):
+    def __init__(self, model_name: str = "yolov5m", class_names: List[str] = ["person"], confidence: float = 0.35):
         self.model = torch.hub.load(f'ultralytics/{model_name[:-1]}', model_name)
         self.class_names = class_names
         self.confidence = confidence
